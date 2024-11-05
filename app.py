@@ -50,8 +50,11 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Rota inicial
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 # Rota do dashboard
 @app.route('/dashboard')
