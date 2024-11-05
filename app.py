@@ -10,11 +10,6 @@ import os
 app = Flask(__name__)
 app.secret_key = 'chave-secreta-para-sessao'
 
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5001))
-    print(f"Starting app on port {port}")
-    app.run(host='0.0.0.0', port=port)
-
 # Configuração do banco de dados SQLite
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///monitorias.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
