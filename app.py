@@ -53,9 +53,12 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def home():
     return render_template('index.html')
 
+# Ajuste para que o Flask escute no porto especificado pelo Render
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # O 5000 é um fallback se PORT não estiver definido
+    app.run(host='0.0.0.0', port=port)  # Escutando em todas as interfaces de rede
 
+    
 # Rota do dashboard
 @app.route('/dashboard')
 def dashboard():
