@@ -348,6 +348,7 @@ def relatorio():
     media_notas = {}
     media_pontuacao_por_analista = {}
     nota_media_por_analista = {}
+    pontos_possiveis_por_analista = {}
 
     # Verifica se há filtro na requisição POST
     if request.method == 'POST':
@@ -394,6 +395,15 @@ def relatorio():
                 else:
                     media_pontuacao_por_analista[monitoria.nome_analista][item].append(10)  # Sem penalidade
 
+            # Armazena os pontos possíveis por item
+            pontos_possiveis_por_analista.setdefault(monitoria.nome_analista, {
+                'se_apresentou': 10,
+                'atendeu_prontidao': 10,
+                'ouviu_demanda': 10,
+                'demonstrou_empatia': 10,
+                'realizou_sondagem': 10
+            })
+
         # Calcula a média de pontuação para cada item por analista
         for analista, items in media_pontuacao_por_analista.items():
             for item, pontuacoes in items.items():
@@ -408,15 +418,8 @@ def relatorio():
         analistas=analistas,
         media_notas=media_notas,
         media_pontuacao_por_analista=media_pontuacao_por_analista,
-        nota_media_por_analista=nota_media_por_analista
-    )
-
-    return render_template(
-        'relatorio.html',
-        analistas=analistas,
-        media_notas=media_notas,
-        media_pontuacao_por_analista=media_pontuacao_por_analista,
-        nota_media_por_analista=nota_media_por_analista
+        nota_media_por_analista=nota_media_por_analista,
+        pontos_possiveis_por_analista=pontos_possiveis_por_analista  # Passando os pontos possíveis
     )
 
 # Rota para registrar um novo usuário

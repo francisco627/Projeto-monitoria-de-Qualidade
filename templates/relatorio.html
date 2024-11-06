@@ -180,13 +180,14 @@
     </div>
 
     <div class="table-container">
-        <h2>Média de Notas por Analista</h2>
+        <h2>Média de Pontuação por Analista (Item por Item)</h2>
         <table>
             <thead>
                 <tr>
                     <th>Analista</th>
                     <th>Item</th>
                     <th>Pontuação Média</th>
+                    <th>Possível Pontuação</th>
                 </tr>
             </thead>
             <tbody>
@@ -195,7 +196,8 @@
                         <tr>
                             <td>{{ analista }}</td>
                             <td>{{ item }}</td>
-                            <td>{{ media }}</td>
+                            <td>{{ media | round(2) }}</td>
+                            <td>10</td>  <!-- A pontuação máxima possível para cada item é 10 -->
                         </tr>
                     {% endfor %}
                 {% endfor %}
