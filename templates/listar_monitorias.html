@@ -5,7 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisar Monitorias</title>
     <style>
-        /* Adicione seu estilo aqui */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        h1 {
+            color: #0056b3;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 250px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .button {
+            padding: 6px 12px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -42,7 +102,7 @@
                 <td>
                     <a href="{{ url_for('visualizar_monitoria', id=monitoria.id) }}" class="button">Ver</a>
                     {% if session['grupo'] == 'administrador' and monitoria.status == 'pendente' %}
-                        <a href="{{ url_for('aplicar_feedback', index=monitoria.id) }}">Assinar Feedback</a>
+                        <a href="{{ url_for('aplicar_feedback', index=monitoria.id) }}" class="button" style="background-color: #28a745;">Assinar Feedback</a>
                     {% endif %}
                 </td>
             </tr>
