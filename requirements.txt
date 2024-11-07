@@ -16,3 +16,4 @@ psycopg2-binary==2.9.10  # Remover psycopg2 se não for necessário
 SQLAlchemy==2.0.35
 typing_extensions==4.12.2
 Werkzeug==3.0.4
+Flask-SQLAlchemy==2.5.1
