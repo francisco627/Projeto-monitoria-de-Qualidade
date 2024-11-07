@@ -3,6 +3,8 @@ from flask import send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()  # Isso vai carregar as variáveis de ambiente do arquivo .env
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
