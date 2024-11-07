@@ -10,12 +10,19 @@ import os
 app = Flask(__name__)
 app.secret_key = 'chave-secreta-para-sessao'
 
-# Configuração do banco de dados SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://monitoria_db_user:qvof4jF81loI45WsH3DQpccbx1jb7GX8@dpg-cslrrfa3esus73ca72jg-a/monitoria_db'
+
+
+# Configuração do banco de dados - PostgreSQL
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://monitoria_db_user:qvof4jF81loI45WsH3DQpccbx1jb7GX8@dpg-cslrrfa3esus73ca72jg-a/monitoria_db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# Inicializando o banco de dados e migrações
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Usa a porta fornecida pelo Render ou 5000 como fallback
+    app.run(host="0.0.0.0", port=port)
 
 
 # Modelo de usuário para o banco de dados
@@ -450,5 +457,4 @@ def registrar_usuario():
 def download_file(filename):
     return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
 
-if __name__ == '__main__':
     app.run(debug=True)
