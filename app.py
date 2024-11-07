@@ -458,3 +458,4 @@ def download_file(filename):
     return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
 
     app.run(debug=True)
+    app.debug = True  # Ativa o modo de depuração
