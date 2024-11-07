@@ -12,9 +12,7 @@ Jinja2==3.1.4
 Mako==1.3.5
 MarkupSafe==3.0.1
 packaging==24.1
-psycopg2==2.9.10
-psycopg2-binary==2.9.10
+psycopg2-binary==2.9.10  # Remover psycopg2 se não for necessário
 SQLAlchemy==2.0.35
 typing_extensions==4.12.2
-waitress==3.0.1
 Werkzeug==3.0.4
