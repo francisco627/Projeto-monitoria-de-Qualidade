@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('{{ url_for("static", filename="img/tela_fundo.png") }}'); /* Caminho corrigido */
+            background-image: url('{{ url_for("static", filename="static/img/tela_fundo.png") }}');
             background-size: cover; /* Faz a imagem cobrir toda a tela */
             background-position: center; /* Centraliza a imagem */
             background-repeat: no-repeat; /* Evita que a imagem se repita */
@@ -112,7 +112,7 @@
     <div class="container">
         <form action="{{ url_for('login') }}" method="POST">
             <div class="form-header">
-                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Fivenet"> <!-- Logo adicionado -->
+                <img src="{{ url_for('static', filename='static/img/logo.png') }}" alt="Logo Fivenet"> <!-- Logo adicionado -->
                 <h2>Monitoria de Qualidade</h2> <!-- Título alterado para Monitoria de Qualidade -->
             </div>
 
@@ -135,3 +135,4 @@
     </div>
 </body>
 </html>
+
